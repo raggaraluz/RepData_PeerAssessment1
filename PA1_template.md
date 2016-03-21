@@ -32,6 +32,30 @@ First, calculate the number of steps per day
 
 ```r
 library(dplyr)
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.2.3
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 stepsPerDay <- group_by(activity, date) %>% summarize(steps = sum(steps, na.rm = TRUE))
 ```
 
@@ -92,8 +116,9 @@ stepsPerInterval$interval[idx]
 ```
 ## [1] 835
 ```
+which corresponds with 8:35 in the morning.
 
-we can print this point in the graph
+Finally we can print this point in the graph
 
 ```r
 with(stepsPerInterval, plot(interval, steps, type='l', main='Average activity pattern'))
@@ -223,6 +248,13 @@ And then we can plot it
 
 ```r
 library(ggplot2)
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.2.3
+```
+
+```r
 qplot(interval, steps, data=stepsPerDayType, geom='line', facets = day.type ~ .)
 ```
 

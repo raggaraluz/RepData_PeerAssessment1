@@ -67,8 +67,9 @@ and locate interval with the maximum value
 idx <- which.max(stepsPerInterval$steps)
 stepsPerInterval$interval[idx]
 ```
+which corresponds with 8:35 in the morning.
 
-we can print this point in the graph
+Finally we can print this point in the graph
 ```{r,echo=TRUE}
 with(stepsPerInterval, plot(interval, steps, type='l', main='Average activity pattern'))
 with(stepsPerInterval, points(interval[idx], steps[idx], pch=8, col='red'))
